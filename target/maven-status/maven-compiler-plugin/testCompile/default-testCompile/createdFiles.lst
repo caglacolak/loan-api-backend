@@ -1,0 +1,7 @@
+com\cagla\loan\service\LoanServiceTest.class
+com\cagla\loan\repository\LoanRepositoryTest.class
+com\cagla\loan\LoanApplicationTests.class
+com\cagla\loan\controller\LoanControllerTest.class
+com\cagla\loan\model\LoanTest.class
+com\cagla\loan\TestcontainersConfiguration.class
+com\cagla\loan\TestLoanApplication.class
