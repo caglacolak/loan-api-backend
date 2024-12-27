@@ -67,11 +67,14 @@ All endpoints require Basic Authentication. Use the following credentials (confi
 
 #### 1. Loan Management
 - **Create a Loan**
-    - Endpoint: `POST /api/loans`
+    - Endpoint: `POST /api/loans/create`
     - Request Body:
       ```json
       {
+        "customerId": 1,
         "loanAmount": 1000,
+        "isPaid": false,
+        "interestRate": 0.1,
         "numberOfInstallments": 3
       }
       ```
@@ -81,16 +84,35 @@ All endpoints require Basic Authentication. Use the following credentials (confi
 
 #### 2. Loan Installments
 - **Pay Loan**
-    - Endpoint: `POST /api/loans/{loanId}/pay`
+    - Endpoint: `POST /api/loans/pay/{loanId}?amount={amount}`
+
+- **View Installments**
+    - Endpoint: `GET /api/loans/installments/{loanId}`
+
+#### 3. Customer Management
+- **Create a Customer**
+    - Endpoint: `POST /api/customers/create`
     - Request Body:
       ```json
       {
-        "amount": 1000
+        "name": "Çağla",
+        "surname": "Şimşek",
+        "creditLimit": 100.0,
+        "usedCreditLimit": 1.0
       }
       ```
 
-- **View Installments**
-    - Endpoint: `GET /api/loans/{loanId}/installments`
+- **Update Customer Credit Limit**
+    - Endpoint: `POST /api/customers/update/{customerID}/creditLimit?newCreditLimit={newCreditLimit}`
+
+- **Update Customer Used Credit Limit**
+    - Endpoint: `POST /api/customers/update/{customerID}/usedCreditLimit?newUsedCreditLimit={newUsedCreditLimit}`
+
+- **List Customer Details By Customer ID**
+    - Endpoint: `GET /api/customers/{customerId}`
+
+- **List All Customers**
+    - Endpoint: `GET /api/customers/`
 
 ## Running Tests
 To run unit tests, execute:
